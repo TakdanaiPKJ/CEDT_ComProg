@@ -1,0 +1,1 @@
+printf("%d --> x[ %d : %d ]",vt[i],i-dm,i);
