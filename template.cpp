@@ -1,22 +1,5 @@
-/*
-#include "bits/stdc++.h"
-using namespace std;
-
-int main(){
-
-    double x;
-    cin >> x;
-
-    double y= ((pow(x,sqrt(log(pow(x+1,2)))))/(10-x));
-
-    cout << round(y*1e6)/1e6;
-
-    return 0;
-}
-*/
-
 #ifdef ONPC
-    #define _GLIBCXX_DEBUG
+    #define _GLIBCXX_DEBUG //if onpc it's will run -DONPC when run
 #endif
 #include <bits/stdc++.h>
 #define sz(a) ((int)((a).size()))
@@ -24,19 +7,23 @@ int main(){
  
 using namespace std;
 // mt19937 rnd(239);
-mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count()); //take current time in nano second as seed random number
  
 typedef long long ll;
 typedef long double ld;
  
 int solve() {
+    
+  int n;
+  while (!(cin>>n)){
+    return 1;
+  }
+  cout << n << "\n";
+    
+  
 
-    double x;
-    cin >> x;
-
-    double y= ((pow(x,sqrt(log(pow(x+1,2)))))/(10-x));
-
-    cout << round(y*1e6)/1e6;
+  return 0;
+    
 
     return 0;
 }
