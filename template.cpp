@@ -14,16 +14,11 @@ typedef long double ld;
  
 int solve() {
     
-  int n;
-  while (!(cin>>n)){
-    return 1;
-  }
-  cout << n << "\n";
-    
-  
-
-  return 0;
-    
+    int n;
+    while (!(cin>>n)){
+        return 1;
+    }
+    cout << n << "\n";
 
     return 0;
 }
