@@ -1,41 +1,39 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-vector <int> adj[9999];
+vector <int > adj[10000];
+vector<int > path;
+set <vector<int> > ans;
 
-bool findd = false;
-
-void findpath(int st,int en){
-    stack <int> q;
-    q.push(st);
-
-    while (!q.empty())
-    {
-        int tmp = q.top(); q.pop();
-        if (tmp==en) findd = true ;
-        cout << tmp << "-> " ;
-        for(auto x: adj[tmp]){
-            q.push(x);
-        }
-    }
-    
-    
-
+void dfs(int now,int en){
+  path.push_back(now);
+  if(now == en) ans.insert(path);
+  for(auto x:adj[now]){
+    dfs(x,en);
+  }
+  path.pop_back();
 }
 
-int main(){
+int main() {
 
-    int wp,sta,endd;
-    cin >> wp >> sta >> endd;
-    for(int i=0;i<wp;i++){
-        int a,b;
-        cin >> a >> b;
-        adj[a].push_back(b);
+  int a , b , c;
+  cin >> a >> b >> c;
+  for (int i = 0;i < a;i++) {
+    int firr , secc;
+    cin >> firr >> secc;
+    adj[firr].push_back(secc);
+  }
+  dfs(b , c);
+  bool chk = true;
+  for (auto x : ans) {
+    for (int i = 0; i < x.size(); i++) {
+      cout << x[i];
+      if (i < x.size() - 1) cout << " -> ";
     }
-    findpath(sta,endd);
+    cout << "\n";
+    chk = false;
+  }
+  if(chk) cout << "no";
 
-    cout << (findd ? "yes" : "no");
-    
-
-    return 0;
+  return 0;
 }

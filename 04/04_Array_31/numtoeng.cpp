@@ -9,17 +9,11 @@ vector<pair<long long, string>> nums ={{1000000000000,"trillion"},{1000000000, "
     {7, "seven"}, {6, "six"}, {5, "five"}, {4, "four"}, {3, "three"}, {2, "two"}, {1, "one"}};
 
 string solve(long long a){
-    
     if (a==0) return "zero";
-
     for(auto x:nums){
-
         if(a>=x.first){
-
             return (a>=100 ? solve(a/x.first) : "") + x.second+ " " + (a%x.first==0 ? "" : solve(a%x.first)) ;
-
         }
-
     }
     return "";
 }
