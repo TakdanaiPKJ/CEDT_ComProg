@@ -1,28 +1,30 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-double a;
-
-int bs(int low,int high){
-    while (low<high){
-        
-        int x = low+(high-low) / 2;
-
-        if(abs(a-pow(x,2))<=(pow(10,-10)*max(a,pow(x,2)))) return x;
-
-        if(pow(x,2)>a) high = x;
-        else if(pow(x,2)<a) low = x  ;
-        else return x;
-
-    }
-    return -1;
-}
-
 int main(){
 
-    cin >> a;
+  double r,l=0;
+  double a;
+  cin >> a;
+  r=a;
+  
+  while(r>l){
+    double x = (r+l)/2;
+    
+    if(abs(a-pow(x,2)) <= 10e-10*max(a,pow(x,2))){
+      cout << x;
+      return 0;
+    }
 
-    cout << bs(1,a);
+    if(pow(x,2) > a){
+      r = x;
+    }
+    else if(pow(x,2) < a){
+      l = x;
+    }
+  }
 
-    return 0;
+
+  return 0;
 }
+
