@@ -15,17 +15,46 @@ mt19937
 typedef long long ll;
 typedef long double ld;
 
+unordered_map<string, int> student;
+string gl[10] = {"F", "D", "D+", "C", "C+", "B", "B+", "A"};
+vector<int> grade;
+vector<string> order;
+
 void solve() {
 
-  
-
+  string a, b;
+  int n = 0;
+  while (cin >> a) {
+    if (a == "q")
+      break;
+    cin >> b;
+    student[a] = n;
+    for (int i = 0; i < 8; i++) {
+      if (gl[i] == b) {
+        grade.push_back(i);
+        break;
+      }
+    }
+    order.push_back(a);
+    n++;
+  }
+  while (cin >> a) {
+    grade[student[a]]++;
+    if (grade[student[a]] >= 8)
+      grade[student[a]]--;
+  }
+  for (int i = 0; i < n; i++) {
+    cout << order[i] << " " << gl[grade[i]] << "\n";
+  }
 }
 
 int32_t main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
-  int TET = 1e9;
+  int TET = 1;
+#ifdef ONPC
   cin >> TET;
+#endif
   for (int i = 1; i <= TET; i++) {
     solve();
 #ifdef ONPC
@@ -36,4 +65,5 @@ int32_t main() {
   cerr << endl
        << "finished in " << clock() * 1.0 / CLOCKS_PER_SEC << " sec" << endl;
 #endif
+  return 0;
 }

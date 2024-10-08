@@ -17,8 +17,13 @@ typedef long double ld;
 
 void solve() {
 
-  
+  double w, h;
+  cin >> w >> h;
 
+  cout << setprecision(15);
+  cout << (sqrt(w * h) / 60) << endl;
+  cout << (0.024265 * pow(w, 0.5378) * pow(h, 0.3964)) << endl;
+  cout << (0.0333 * pow(w, (0.6157 - 0.0188 * log10(w))) * pow(h, 0.3));
 }
 
 int32_t main() {
@@ -29,11 +34,12 @@ int32_t main() {
   for (int i = 1; i <= TET; i++) {
     solve();
 #ifdef ONPC
-    cout << "\n__________________________\n";
+    cout << "\n __________________________ \n";
 #endif
   }
 #ifdef ONPC
   cerr << endl
        << "finished in " << clock() * 1.0 / CLOCKS_PER_SEC << " sec" << endl;
 #endif
+  return 0;
 }
